@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrbitStore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="store">
+  <nav class="nav">
+    <a class="nav-logo" href="#">
+      <div class="logo-mark">
+        <div class="logo-ring"></div>
+        <div class="logo-star"></div>
+      </div>
+       ASSET STORE
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Passes</a></li>
+      <li><a href="#">Bundles</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" onclick="openCart()">
+        <i class="ti ti-shopping-bag" aria-hidden="true"></i>
+        Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="signin-btn">Sign In</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg-ring"></div>
+    <div class="hero-eyebrow">✦ Powered by PayHip</div>
+    <h1>Your <span>Universe</span> of Digital Goods</h1>
+    <p>Instant downloads, exclusive passes, and curated bundles — all in one orbit.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.querySelector('.section').scrollIntoView({behavior:'smooth'})">Browse Shop</button>
+      <button class="btn-outline" onclick="document.querySelector('.subs-section').scrollIntoView({behavior:'smooth'})">View Passes</button>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title">Featured Products</div>
+      <a class="view-all" href="#">All products <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-title">New Arrivals</div>
+      <a class="view-all" href="#">See more <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="product-grid" id="newGrid"></div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="subs-section">
+    <div class="section-header">
+      <div class="section-title">Orbit Passes</div>
+    </div>
+    <p class="subs-sub">Unlock exclusive perks with a monthly or yearly pass.</p>
+    <div class="subs-grid" id="subsGrid"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo">✦ OrbitStore</div>
+    <div class="footer-pay">
+      <span class="footer-pay-label">Payments secured by</span>
+      <div class="pay-badge">PayHip</div>
+      <div class="pay-badge"><i class="ti ti-shield-check" style="color:#4ade80"></i> SSL</div>
+    </div>
+    <p class="footer-copy">© 2026 OrbitStore · All rights reserved · Powered by PayHip</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
