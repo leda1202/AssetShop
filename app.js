@@ -1,121 +1,189 @@
-// ─── Product & Subscription Data ───────────────────────────────────────────
-// Replace `payhipUrl` with your actual PayHip product links
+// ─── Data ────────────────────────────────────────────────────────────────────
+// Replace payhipUrl values with your actual PayHip product links
+
 const products = [
-  { id: 1, name: 'Starter Pack',    desc: 'Essential assets to kick off any project',   price: 9.99,  emoji: '📦', badge: 'Hot',  payhipUrl: 'https://payhip.com/b/YOUR_ID' },
-  { id: 2, name: 'Sound Kit Vol.1', desc: '120 royalty-free audio loops & effects',      price: 19.99, old: 29.99, emoji: '🎧', badge: 'Sale', payhipUrl: 'https://payhip.com/b/YOUR_ID' },
-  { id: 3, name: 'Icon Bundle',     desc: '500+ polished icons, 3 formats',              price: 14.99, emoji: '⚡', payhipUrl: 'https://payhip.com/b/YOUR_ID' },
-  { id: 4, name: 'UI Template Pro', desc: 'Figma & HTML template set',                  price: 34.99, emoji: '🎨', badge: 'New', payhipUrl: 'https://payhip.com/b/YOUR_ID' },
-  { id: 5, name: 'Font Collection', desc: '12 premium typefaces, all weights',           price: 24.99, emoji: '🔤', payhipUrl: 'https://payhip.com/b/YOUR_ID' },
-  { id: 6, name: 'Motion Pack',     desc: 'Lottie animations for any platform',         price: 17.99, emoji: '✨', payhipUrl: 'https://payhip.com/b/YOUR_ID' },
+  { id:1,  name:'Starter Pack',    desc:'Essential assets to kick off any project',  price:9.99,  emoji:'📦', badge:'Hot',  payhipUrl:'https://payhip.com/b/YOUR_ID' },
+  { id:2,  name:'Sound Kit Vol.1', desc:'120 royalty-free audio loops & effects',    price:19.99, old:29.99, emoji:'🎧', badge:'Sale', payhipUrl:'https://payhip.com/b/YOUR_ID' },
+  { id:3,  name:'Icon Bundle',     desc:'500+ polished icons in 3 formats',          price:14.99, emoji:'⚡', payhipUrl:'https://payhip.com/b/YOUR_ID' },
+  { id:4,  name:'UI Template Pro', desc:'Figma & HTML template set',                price:34.99, emoji:'🎨', badge:'New', payhipUrl:'https://payhip.com/b/YOUR_ID' },
+  { id:5,  name:'Font Collection', desc:'12 premium typefaces, all weights',         price:24.99, emoji:'🔤', payhipUrl:'https://payhip.com/b/YOUR_ID' },
+  { id:6,  name:'Motion Pack',     desc:'Lottie animations for any platform',        price:17.99, emoji:'✨', payhipUrl:'https://payhip.com/b/YOUR_ID' },
 ];
 
-const newItems = [
-  { id: 7,  name: '3D Asset Pack',   desc: '50 game-ready 3D models',              price: 44.99, emoji: '🌀', badge: 'New',  payhipUrl: 'https://payhip.com/b/YOUR_ID' },
-  { id: 8,  name: 'Code Snippets',   desc: '100+ production-ready JS snippets',    price: 12.99, emoji: '💻', payhipUrl: 'https://payhip.com/b/YOUR_ID' },
-  { id: 9,  name: 'Preset Bundle',   desc: 'Lightroom & Capture One presets',      price: 22.99, old: 32.99, emoji: '📷', badge: 'Sale', payhipUrl: 'https://payhip.com/b/YOUR_ID' },
-  { id: 10, name: 'Social Kit',      desc: '300 social media templates',           price: 16.99, emoji: '🚀', badge: 'New',  payhipUrl: 'https://payhip.com/b/YOUR_ID' },
+const bundles = [
+  { id:7,  name:'3D Asset Pack',  desc:'50 game-ready 3D models',             price:44.99, emoji:'🌀', badge:'New',  payhipUrl:'https://payhip.com/b/YOUR_ID' },
+  { id:8,  name:'Code Snippets',  desc:'100+ production-ready JS snippets',   price:12.99, emoji:'💻', payhipUrl:'https://payhip.com/b/YOUR_ID' },
+  { id:9,  name:'Preset Bundle',  desc:'Lightroom & Capture One presets',     price:22.99, old:32.99, emoji:'📷', badge:'Sale', payhipUrl:'https://payhip.com/b/YOUR_ID' },
+  { id:10, name:'Social Kit',     desc:'300 social media templates',          price:16.99, emoji:'🚀', badge:'New',  payhipUrl:'https://payhip.com/b/YOUR_ID' },
 ];
 
 const subs = [
   {
-    id: 'basic', name: 'Basic Pass', price: 4.99, period: '/ month', icon: '🌑', cls: 'basic',
-    features: ['5 downloads / month', 'Standard assets', 'Email support', 'Community access'],
-    payhipUrl: 'https://payhip.com/b/YOUR_BASIC_ID'
+    id:'basic', name:'Basic', tier:'Starter', price:4.99, period:'/mo', emoji:'🌑', cls:'basic',
+    features:['5 downloads / month','Standard asset library','Email support','Community access'],
+    payhipUrl:'https://payhip.com/b/YOUR_BASIC_ID'
   },
   {
-    id: 'pro', name: 'Pro Pass', price: 12.99, period: '/ month', icon: '⭐', cls: 'pro', popular: true,
-    features: ['Unlimited downloads', 'Premium assets', 'Priority support', 'Early access drops', 'Commercial licence'],
-    payhipUrl: 'https://payhip.com/b/YOUR_PRO_ID'
+    id:'pro', name:'Pro', tier:'Most Popular', price:12.99, period:'/mo', emoji:'⭐', cls:'pro', popular:true,
+    features:['Unlimited downloads','Premium asset library','Priority support','Early access drops','Commercial licence'],
+    payhipUrl:'https://payhip.com/b/YOUR_PRO_ID'
   },
   {
-    id: 'elite', name: 'Elite Pass', price: 34.99, period: '/ month', icon: '🌌', cls: 'elite',
-    features: ['Everything in Pro', '1-on-1 sessions', 'Custom requests', 'API access', 'Team seats (3)'],
-    payhipUrl: 'https://payhip.com/b/YOUR_ELITE_ID'
+    id:'elite', name:'Elite', tier:'Team', price:34.99, period:'/mo', emoji:'🌌', cls:'elite',
+    features:['Everything in Pro','1-on-1 sessions','Custom requests','API access','Team seats (3)'],
+    payhipUrl:'https://payhip.com/b/YOUR_ELITE_ID'
   },
 ];
 
-// ─── Cart State ─────────────────────────────────────────────────────────────
+// ─── Cart ────────────────────────────────────────────────────────────────────
 let cart = [];
 
-// ─── Toast Notification ──────────────────────────────────────────────────────
+function addToCart(id, name, price, payhipUrl, btn) {
+  cart.push({ id, name, price, payhipUrl });
+  updateCartUI();
+  btn.classList.add('added');
+  btn.textContent = '✓';
+  setTimeout(() => { btn.classList.remove('added'); btn.textContent = '+'; }, 1600);
+  showToast(`"${name}" added to cart`);
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCartUI();
+  renderCartItems();
+}
+
+function updateCartUI() {
+  document.getElementById('cartCount').textContent = cart.length;
+}
+
+function renderCartItems() {
+  const list = document.getElementById('cartItems');
+  const footer = document.getElementById('cartFooter');
+
+  if (cart.length === 0) {
+    list.innerHTML = '<li class="cart-empty">Your cart is empty.</li>';
+    footer.style.display = 'none';
+    return;
+  }
+
+  footer.style.display = 'block';
+  list.innerHTML = cart.map((item, i) => `
+    <li class="cart-item">
+      <div>
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">€${item.price.toFixed(2)}</div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart(${i})">✕</button>
+    </li>
+  `).join('');
+
+  const total = cart.reduce((sum, i) => sum + i.price, 0);
+  document.getElementById('cartTotal').textContent = '€' + total.toFixed(2);
+}
+
+function openCart() {
+  renderCartItems();
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function checkoutAll() {
+  if (cart.length === 0) return;
+  // Open the first item's PayHip page; replace with your store/checkout URL
+  window.open(cart[0].payhipUrl, '_blank');
+  showToast('Redirecting to PayHip checkout…');
+}
+
+// ─── Toast ───────────────────────────────────────────────────────────────────
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2400);
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2500);
 }
 
-// ─── Cart ────────────────────────────────────────────────────────────────────
-function addToCart(id, name, payhipUrl, btn) {
-  cart.push({ id, name, payhipUrl });
-  document.getElementById('cartCount').textContent = cart.length;
-  btn.classList.add('added');
-  btn.textContent = '✓';
-  setTimeout(() => { btn.classList.remove('added'); btn.textContent = '+'; }, 1800);
-  showToast('Added "' + name + '" to cart');
-}
-
-function openCart() {
-  if (cart.length === 0) {
-    showToast('Your cart is empty');
-    return;
-  }
-  // With PayHip you typically link directly to product pages.
-  // For a proper cart, integrate PayHip's embed widget or redirect to your store page.
-  showToast(cart.length + ' item(s) — opening PayHip checkout...');
-  // Redirect to first item as example:
-  // window.open(cart[0].payhipUrl, '_blank');
-}
-
-// ─── Render Product Card ─────────────────────────────────────────────────────
+// ─── Render product card ──────────────────────────────────────────────────────
 function renderProduct(p, container) {
   const div = document.createElement('div');
   div.className = 'product-card';
   div.innerHTML = `
-    ${p.badge ? `<div class="product-badge${p.badge === 'Sale' ? ' sale' : ''}">${p.badge}</div>` : ''}
-    <div class="product-img">${p.emoji}</div>
-    <div class="product-info">
+    <div class="product-thumb">
+      ${p.badge ? `<div class="product-badge${p.badge === 'Sale' ? ' sale' : ''}">${p.badge}</div>` : ''}
+      <span>${p.emoji}</span>
+    </div>
+    <div class="product-body">
       <div class="product-name">${p.name}</div>
       <div class="product-desc">${p.desc}</div>
-      <div class="product-footer">
+      <div class="product-foot">
         <div class="product-price">
           ${p.old ? `<span class="old">€${p.old.toFixed(2)}</span>` : ''}
           €${p.price.toFixed(2)}
         </div>
-        <button class="add-btn" onclick="addToCart(${p.id}, '${p.name}', '${p.payhipUrl}', this)">+</button>
+        <button class="add-btn" title="Add to cart">+</button>
       </div>
     </div>`;
-  // Clicking the card body (not the button) goes to PayHip product page
-  div.addEventListener('click', (e) => {
-    if (!e.target.classList.contains('add-btn')) {
-      window.open(p.payhipUrl, '_blank');
-    }
+
+  div.querySelector('.add-btn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    addToCart(p.id, p.name, p.price, p.payhipUrl, e.currentTarget);
   });
+
+  div.addEventListener('click', () => window.open(p.payhipUrl, '_blank'));
   container.appendChild(div);
 }
 
-// ─── Render Subscription Card ────────────────────────────────────────────────
+// ─── Render subscription card ─────────────────────────────────────────────────
 function renderSub(s, container) {
   const div = document.createElement('div');
   div.className = 'sub-card' + (s.popular ? ' popular' : '');
   div.innerHTML = `
-    ${s.popular ? '<div class="sub-popular-badge">Most Popular</div>' : ''}
-    <div class="sub-icon ${s.cls}">${s.icon}</div>
+    ${s.popular ? `<div class="sub-popular-badge">${s.tier}</div>` : ''}
+    <div class="sub-tier">${s.popular ? 'Pro' : s.tier}</div>
     <div class="sub-name">${s.name}</div>
     <div class="sub-price">€${s.price.toFixed(2)}<span> ${s.period}</span></div>
+    <hr class="sub-divider">
     <ul class="sub-features">
       ${s.features.map(f => `<li>${f}</li>`).join('')}
     </ul>
-    <button class="sub-btn" onclick="window.open('${s.payhipUrl}', '_blank')">Get ${s.name}</button>`;
+    <button class="sub-btn" onclick="window.open('${s.payhipUrl}','_blank')">Get ${s.name}</button>`;
   container.appendChild(div);
 }
 
-// ─── Init ────────────────────────────────────────────────────────────────────
+// ─── Active nav link on scroll ────────────────────────────────────────────────
+function initNavHighlight() {
+  const sections = [
+    { id: 'shop',    el: document.getElementById('shop') },
+    { id: 'bundles', el: document.getElementById('bundles') },
+    { id: 'passes',  el: document.getElementById('passes') },
+  ];
+  const links = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.35 });
+
+  sections.forEach(s => s.el && observer.observe(s.el));
+}
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
-  const pg = document.getElementById('productGrid');
-  const ng = document.getElementById('newGrid');
-  const sg = document.getElementById('subsGrid');
-  products.forEach(p => renderProduct(p, pg));
-  newItems.forEach(p => renderProduct(p, ng));
-  subs.forEach(s => renderSub(s, sg));
+  products.forEach(p => renderProduct(p, document.getElementById('productGrid')));
+  bundles.forEach(p  => renderProduct(p, document.getElementById('newGrid')));
+  subs.forEach(s    => renderSub(s,    document.getElementById('subsGrid')));
+  initNavHighlight();
 });

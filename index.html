@@ -4,88 +4,161 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OrbitStore</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <span class="cart-title">Cart</span>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <ul class="cart-items" id="cartItems">
+    <li class="cart-empty">Your cart is empty.</li>
+  </ul>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">Total: <strong id="cartTotal">€0.00</strong></div>
+    <button class="btn-primary full" onclick="checkoutAll()">Checkout via PayHip</button>
+  </div>
+</aside>
+
 <div class="store">
   <nav class="nav">
-    <a class="nav-logo" href="#">
+    <a class="nav-logo" href="#top">
       <div class="logo-mark">
         <div class="logo-ring"></div>
         <div class="logo-star"></div>
       </div>
-       ASSET STORE
+      OrbitStore
     </a>
     <ul class="nav-links">
-      <li><a href="#">Shop</a></li>
-      <li><a href="#">Passes</a></li>
-      <li><a href="#">Bundles</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#passes">Passes</a></li>
+      <li><a href="#bundles">Bundles</a></li>
     </ul>
     <div class="nav-right">
-      <button class="cart-btn" onclick="openCart()">
-        <i class="ti ti-shopping-bag" aria-hidden="true"></i>
+      <button class="cart-btn" id="cartBtn" onclick="openCart()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         Cart <span class="cart-count" id="cartCount">0</span>
       </button>
       <button class="signin-btn">Sign In</button>
     </div>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="top">
     <div class="hero-bg-ring"></div>
     <div class="hero-eyebrow">✦ Powered by PayHip</div>
-    <h1>Your <span>Universe</span> of Digital Goods</h1>
+    <h1>Your <span>Universe</span><br>of Digital Goods</h1>
     <p>Instant downloads, exclusive passes, and curated bundles — all in one orbit.</p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="document.querySelector('.section').scrollIntoView({behavior:'smooth'})">Browse Shop</button>
-      <button class="btn-outline" onclick="document.querySelector('.subs-section').scrollIntoView({behavior:'smooth'})">View Passes</button>
+      <a class="btn-primary" href="#shop">Browse Shop</a>
+      <a class="btn-outline" href="#passes">View Passes</a>
     </div>
   </section>
 
   <hr class="divider">
 
-  <section class="section">
+  <section class="section" id="shop">
     <div class="section-header">
       <div class="section-title">Featured Products</div>
-      <a class="view-all" href="#">All products <i class="ti ti-arrow-right"></i></a>
     </div>
     <div class="product-grid" id="productGrid"></div>
   </section>
 
   <hr class="divider">
 
-  <section class="section">
+  <section class="section" id="bundles">
     <div class="section-header">
-      <div class="section-title">New Arrivals</div>
-      <a class="view-all" href="#">See more <i class="ti ti-arrow-right"></i></a>
+      <div class="section-title">Bundles</div>
     </div>
     <div class="product-grid" id="newGrid"></div>
   </section>
 
   <hr class="divider">
 
-  <section class="subs-section">
+  <section class="subs-section" id="passes">
     <div class="section-header">
       <div class="section-title">Orbit Passes</div>
     </div>
-    <p class="subs-sub">Unlock exclusive perks with a monthly or yearly pass.</p>
+    <p class="subs-sub">Unlock exclusive perks with a monthly pass.</p>
     <div class="subs-grid" id="subsGrid"></div>
   </section>
 
+  <hr class="divider">
+
   <footer class="footer">
-    <div class="footer-logo">✦ OrbitStore</div>
-    <div class="footer-pay">
-      <span class="footer-pay-label">Payments secured by</span>
-      <div class="pay-badge">PayHip</div>
-      <div class="pay-badge"><i class="ti ti-shield-check" style="color:#4ade80"></i> SSL</div>
+    <div class="footer-top">
+      <!-- Brand -->
+      <div>
+        <div class="footer-brand-name">
+          <div class="logo-mark">
+            <div class="logo-ring"></div>
+            <div class="logo-star"></div>
+          </div>
+          OrbitStore
+        </div>
+        <p class="footer-brand-desc">
+          A digital marketplace for premium assets, templates, and tools.
+          All products are delivered instantly via PayHip.
+        </p>
+        <div class="footer-pay-row">
+          <div class="pay-badge">PayHip</div>
+          <div class="pay-badge">SSL ✓</div>
+          <div class="pay-badge">DSGVO konform</div>
+        </div>
+      </div>
+
+      <!-- Shop links -->
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#shop">Featured Products</a></li>
+          <li><a href="#bundles">Bundles</a></li>
+          <li><a href="#passes">Orbit Passes</a></li>
+          <li><a href="#">New Arrivals</a></li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Kontakt</a></li>
+          <li><a href="#">Lizenzbedingungen</a></li>
+          <li><a href="#">Rückgabe &amp; Erstattung</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal / Impressum -->
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="#impressum">Impressum</a></li>
+          <li><a href="#datenschutz">Datenschutz</a></li>
+          <li><a href="#agb">AGB</a></li>
+          <li><a href="#cookies">Cookie-Einstellungen</a></li>
+        </ul>
+      </div>
     </div>
-    <p class="footer-copy">© 2026 OrbitStore · All rights reserved · Powered by PayHip</p>
+
+  
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 OrbitStore · Alle Rechte vorbehalten</span>
+      <nav class="footer-legal">
+        <a href="#impressum">Impressum</a>
+        <a href="#datenschutz">Datenschutz</a>
+        <a href="#agb">AGB</a>
+      </nav>
+    </div>
   </footer>
 </div>
 
 <div class="toast" id="toast"></div>
-
 <script src="app.js"></script>
 </body>
 </html>
