@@ -38,6 +38,23 @@ const subs = [
 // ─── Cart ────────────────────────────────────────────────────────────────────
 let cart = [];
 
+document.addEventListener('DOMContentLoaded', () => {
+  products.forEach(p => renderProduct(p, document.getElementById('productGrid')));
+  bundles.forEach(p  => renderProduct(p, document.getElementById('newGrid')));
+  subs.forEach(s    => renderSub(s,    document.getElementById('subsGrid')));
+  initNavHighlight();
+
+  const loader = document.getElementById('loaderWrapper');
+  if (loader) {
+    setTimeout(() => {
+      loader.classList.add('fade-out');
+      setTimeout(() => {
+        loader.remove();
+      }, 600);
+    }, 1600);
+  }
+});
+
 function addToCart(id, name, price, payhipUrl, btn) {
   cart.push({ id, name, price, payhipUrl });
   updateCartUI();
