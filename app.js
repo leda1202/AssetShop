@@ -128,7 +128,7 @@ function renderProduct(p, container) {
           ${p.old ? `<span class="old">€${p.old.toFixed(2)}</span>` : ''}
           €${p.price.toFixed(2)}
         </div>
-        <button class="add-btn" title="Add to cart">+</button>
+        <button class="add-btn" title="Add to cart"></button>
       </div>
     </div>`;
 
