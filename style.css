@@ -225,6 +225,13 @@ body { background: #161616; font-family: 'Inter', sans-serif; color: #e8e8e8; mi
   overflow: hidden;
   border-bottom: 1px solid #252525;
 }
+
+.product-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .product-card:nth-child(1) .product-thumb  { background: #141f13; }
 .product-card:nth-child(2) .product-thumb  { background: #18141f; }
 .product-card:nth-child(3) .product-thumb  { background: #13181f; }
