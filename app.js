@@ -196,11 +196,3 @@ function initNavHighlight() {
 
   sections.forEach(s => s.el && observer.observe(s.el));
 }
-
-// ─── Init ─────────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  products.forEach(p => renderProduct(p, document.getElementById('productGrid')));
-  bundles.forEach(p  => renderProduct(p, document.getElementById('newGrid')));
-  subs.forEach(s    => renderSub(s,    document.getElementById('subsGrid')));
-  initNavHighlight();
-});
